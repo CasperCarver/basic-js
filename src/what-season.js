@@ -2,6 +2,12 @@ module.exports = function getSeason(d) {
   if (!d){
      return 'Unable to determine the time of year!';
   };
+  if (!(d instanceof Date)) {
+    throw new Error();
+  }
+  if (isNaN(d)) {
+    return 'Unable to determine the time of year!';  
+  }
   dm=d.getMonth();
   if (dm>=2 && dm<=4){
     return  'spring';
